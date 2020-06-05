@@ -70,7 +70,7 @@ module.exports = {
     ]
   }, */
   configureWebpack: config => {
-    // config.resolve.extensions.modules.push('common_modules');
+    config.resolve.extensions.modules.push('common_modules');
     // 初始配置里已有类型：'.mjs', '.js', '.jsx', '.vue', '.json', '.wasm'
     config.resolve.extensions.push('.ts', '.tsx');
     config.plugins.push(

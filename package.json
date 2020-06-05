@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "bluebird": "^3.7.2",
     "bootstrap": "^3.3.7",
     "core-js": "^3.6.5",
     "element-ui": "^2.4.5",
