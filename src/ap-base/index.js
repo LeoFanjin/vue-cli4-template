@@ -1,11 +1,11 @@
 /* ap-system */
 // const _ = require('underscore');
 const systemRouter = require('./system/index.js');
-const projectSystem = require('../views/router');
+// const projectSystem = require('../views/router');
 
 // router
 let router = systemRouter;
-router.children = _.union(router.children, projectSystem.children);
+// router.children = _.union(router.children, projectSystem.children);
 
 // // store
 // let store = {
