@@ -63,6 +63,7 @@ let APP_CONFIG = {
 let G = {
   USER_INFO: {},
   OPTIONS: [],
+  lang: 'zh',
   token: null,
   jump: '',
   homePage: '',

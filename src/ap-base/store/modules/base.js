@@ -11,10 +11,10 @@ export const baseStates = {
 };
 
 export const baseMutation = {
-  'SET_MIN_HEIGHT'(state, minHeight) {
+  SET_MIN_HEIGHT(state, minHeight) {
     state.min_height = minHeight;
   },
-  'SET_FULL_LOADING'(state, flag) {
+  SET_FULL_LOADING(state, flag) {
     // if(flag){
     //   Pace.start();
     // }else{

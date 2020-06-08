@@ -1,5 +1,5 @@
-import {API} from "utils";
-import Promise from "bluebird";
+import { API } from 'utils';
+import Promise from 'bluebird';
 
 /**
  * 根据类型查询数据字典项
@@ -17,9 +17,9 @@ export const queryDataItemByType = (store, params) => {
         data: params
       };
 
-      return API.post(param).then(function (data) {
+      return API.post(param).then(function(data) {
         if (data && data.length > 0) {
-          store.commit('SET_DICT', {key: params.libraryCode, value: data});
+          store.commit('SET_DICT', { key: params.libraryCode, value: data });
         }
         return Promise.resolve(data);
       });
@@ -34,10 +34,10 @@ export const queryDataItemByType = (store, params) => {
 /**
  * 查询数据字典
  */
-export const queryDataItemList = ({commit}, params) => {
+export const queryDataItemList = ({ commit }, params) => {
   var param = {
-    url: G.base_api + "/ap-system/findLibrary.do",
-    dataType: "json",
+    url: G.base_api + '/ap-system/findLibrary.do',
+    dataType: 'json',
     commit: commit,
     data: params
   };
@@ -47,10 +47,10 @@ export const queryDataItemList = ({commit}, params) => {
 /**
  * 新增数据字典
  */
-export const saveDict = ({commit}, params) => {
+export const saveDict = ({ commit }, params) => {
   var param = {
-    url: G.base_api + "/ap-system/saveLibrary.do",
-    dataType: "json",
+    url: G.base_api + '/ap-system/saveLibrary.do',
+    dataType: 'json',
     commit: commit,
     data: params
   };
@@ -60,10 +60,10 @@ export const saveDict = ({commit}, params) => {
 /**
  * 修改数据字典
  */
-export const modifyDataItemById = ({commit}, params) => {
+export const modifyDataItemById = ({ commit }, params) => {
   var param = {
-    url: G.base_api + "/ap-system/modifyLibrary.do",
-    dataType: "json",
+    url: G.base_api + '/ap-system/modifyLibrary.do',
+    dataType: 'json',
     commit: commit,
     data: params
   };
@@ -73,28 +73,28 @@ export const modifyDataItemById = ({commit}, params) => {
 /**
  * 删除数据字典
  */
-export const removeDataItemById = ({commit}, params) => {
+export const removeDataItemById = ({ commit }, params) => {
   var param = {
-    url: G.base_api + "/ap-system/removeLibrary.do",
-    dataType: "json",
+    url: G.base_api + '/ap-system/removeLibrary.do',
+    dataType: 'json',
     commit: commit,
     data: params
   };
   return API.post(param);
 };
 
-export const initDict = ({commit, state}, params) => {
+export const initDict = ({ commit, state }, params) => {
   if (!state.isInit) {
     var param = {
-      url: G.base_api + "/ap-system/findLibrary.do",
-      dataType: "json",
+      url: G.base_api + '/ap-system/findLibrary.do',
+      dataType: 'json',
       commit: commit,
       data: params
     };
 
-    return API.post(param).then(function (data) {
+    return API.post(param).then(function(data) {
       if (_.isArray(data)) {
-        commit("INIT_DICT", data);
+        commit('INIT_DICT', data);
         return Promise.resolve(null);
       }
     });

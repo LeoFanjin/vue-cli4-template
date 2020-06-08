@@ -1,4 +1,3 @@
-
 import _ from 'underscore';
 export const getLoginInfo = state => {
   let userInfo = _.clone(state.loginInfo);

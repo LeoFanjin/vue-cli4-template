@@ -1,4 +1,4 @@
-import {API} from 'utils';
+import { API } from 'utils';
 
 /**
  * 查询我的资源权限
@@ -6,14 +6,14 @@ import {API} from 'utils';
  * @param params
  * @returns {*}
  */
-export const queryMyResources = ({commit}, params) => {
+export const queryMyResources = ({ commit }, params) => {
   var param = {
-    url: G.base_api + "/ap-system/getUserResourceList.do",
-    dataType: "json",
+    url: G.base_api + '/ap-system/getUserResourceList.do',
+    dataType: 'json',
     data: params
   };
 
-  return API.post(param).then(function (data) {
+  return API.post(param).then(function(data) {
     if (data) {
       commit('SET_RESOURCE', data);
       commit('SET_SHOW_CONTENT', true);
@@ -26,25 +26,25 @@ export const queryMyResources = ({commit}, params) => {
 /**
  * 查询我的权限
  */
-export const findMyAuth = ({commit}, content) => {
+export const findMyAuth = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/getUserAuthList.do",
+    url: G.base_api + '/ap-system/getUserAuthList.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
   return API.post(param);
 };
 /**
  * 导出角色
  */
-export const exportRole = ({commit}, content) => {
+export const exportRole = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/exportRole",
+    url: G.base_api + '/ap-system/exportRole',
     data: content,
     commit: commit,
     timeout: 120000,
-    dataType: "json"
+    dataType: 'json'
   };
   return API.post(param);
 };

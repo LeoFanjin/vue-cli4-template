@@ -1,18 +1,18 @@
-import {API} from "utils";
+import { API } from 'utils';
 
 /**
  * 用户列表
  */
-export const queryEmployeeInfoList = ({commit}, content) => {
+export const queryEmployeeInfoList = ({ commit }, content) => {
   if (content.userAccount) {
     content.userAccount += ':f';
   }
 
   var param = {
-    url: G.base_api + "/ap-system/findUser.do",
+    url: G.base_api + '/ap-system/findUser.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
   return API.post(param);
 };
@@ -20,12 +20,12 @@ export const queryEmployeeInfoList = ({commit}, content) => {
 /**
  * 新增用户
  */
-export const saveUserRegInfo = ({commit}, content) => {
+export const saveUserRegInfo = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/saveUser.do",
+    url: G.base_api + '/ap-system/saveUser.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
   return API.post(param);
 };
@@ -33,12 +33,12 @@ export const saveUserRegInfo = ({commit}, content) => {
 /**
  * 查询用户详情
  */
-export const queryEmployeeInfoDetail = ({commit}, content) => {
+export const queryEmployeeInfoDetail = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/findUserInfo.do",
+    url: G.base_api + '/ap-system/findUserInfo.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
   return API.post(param);
 };
@@ -46,12 +46,12 @@ export const queryEmployeeInfoDetail = ({commit}, content) => {
 /**
  * 更新用户详情
  */
-export const modifyUserRegInfo = ({commit}, content) => {
+export const modifyUserRegInfo = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/modifyUser.do",
+    url: G.base_api + '/ap-system/modifyUser.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
   return API.post(param);
 };
@@ -59,12 +59,12 @@ export const modifyUserRegInfo = ({commit}, content) => {
 /**
  * 删除用户（单个删除）
  */
-export const removeEmployeeInfo = ({commit}, content) => {
+export const removeEmployeeInfo = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/removeUser.do",
+    url: G.base_api + '/ap-system/removeUser.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
   return API.post(param);
 };
@@ -72,12 +72,12 @@ export const removeEmployeeInfo = ({commit}, content) => {
 /**
  * 密码初始化
  */
-export const initPassword = ({commit}, content) => {
+export const initPassword = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/initUserPassword.do",
+    url: G.base_api + '/ap-system/initUserPassword.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
   return API.post(param);
 };
@@ -85,12 +85,12 @@ export const initPassword = ({commit}, content) => {
 /**
  * 修改密码
  */
-export const modifyPassword = ({commit}, content) => {
+export const modifyPassword = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/settingUserPassword.do",
+    url: G.base_api + '/ap-system/settingUserPassword.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
   return API.post(param);
 };
@@ -98,16 +98,16 @@ export const modifyPassword = ({commit}, content) => {
 /**
  * 修改我的信息
  */
-export const modifyMyInfo = ({commit}, content) => {
+export const modifyMyInfo = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/modifyUserInfo.do",
+    url: G.base_api + '/ap-system/modifyUserInfo.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
 
   return API.post(param).then(() => {
-    commit("UPDATE_MY_INFO", content);
+    commit('UPDATE_MY_INFO', content);
     return Promise.resolve(null);
   });
 };
@@ -115,12 +115,12 @@ export const modifyMyInfo = ({commit}, content) => {
 /**
  * 查询用户头像
  */
-export const findUserHead = ({commit}, content) => {
+export const findUserHead = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/findUserHeadImage.do",
+    url: G.base_api + '/ap-system/findUserHeadImage.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
 
   return API.post(param);
@@ -129,12 +129,12 @@ export const findUserHead = ({commit}, content) => {
 /**
  * 删除用户头像
  */
-export const removeUserHead = ({commit}, content) => {
+export const removeUserHead = ({ commit }, content) => {
   var param = {
-    url: G.base_api + "/ap-system/removeUserHeadImage.do",
+    url: G.base_api + '/ap-system/removeUserHeadImage.do',
     data: content,
     commit: commit,
-    dataType: "json"
+    dataType: 'json'
   };
 
   return API.post(param);
@@ -143,6 +143,6 @@ export const removeUserHead = ({commit}, content) => {
 /**
  * 设置用户头像
  */
-export const setUserHead = ({commit}, userImgPath) => {
+export const setUserHead = ({ commit }, userImgPath) => {
   commit('SET_USER_HEAD', userImgPath);
 };

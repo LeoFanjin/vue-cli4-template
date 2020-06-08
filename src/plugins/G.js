@@ -3,8 +3,7 @@ import { myBrowser } from 'utils';
 const env = process.env.NODE_ENV || 'development';
 let config = require(`../config/env.${env}`);
 
-G = Object.assign({}, G, config, APP_CONFIG[env], {
-  lang: 'zh',
+Object.assign(G, config, APP_CONFIG[env], {
   sys_sign: 'system_sign',
   errorPage: '/error',
   messageLock: false,
@@ -14,7 +13,7 @@ G = Object.assign({}, G, config, APP_CONFIG[env], {
 });
 
 if (!G.isRelyAPI) {
-  G.localResource = require('../ap-base/local-resources');
+  G.localResource = require('@/ap-base/local-resources');
 }
 
 if (myBrowser() === 'Safari' && G.supportSafari) {

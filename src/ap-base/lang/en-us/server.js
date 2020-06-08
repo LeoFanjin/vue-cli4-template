@@ -1,5 +1,5 @@
 module.exports = {
-  "server": {
+  server: {
     result: {
       LOGIN_FAIL: 'Login failed',
       UN_LOGIN: 'Please login first before you do this',
@@ -15,7 +15,7 @@ module.exports = {
       SELECT_FAIL_ERROE_ATTRIBUTE: 'Parameter error, the query fails',
       SELECT_FAIL_SERVICE_ERROR: 'System error, the query fails',
       UNAUTHORIZED: 'The current user is not authorized',
-      DATABASE_ERROR: 'System error',         //数据库异常
+      DATABASE_ERROR: 'System error', //数据库异常
       SERVICE_ERROR: 'System exception',
       REQUEST_METHOD_ERROR: 'Request method error',
       UNKNOW_ERROR: 'An unknown error'

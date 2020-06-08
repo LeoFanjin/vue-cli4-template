@@ -1,14 +1,20 @@
-import {Storage, cookie} from 'utils';
-import _ from "underscore";
+import { Storage, cookie } from 'utils';
+import _ from 'underscore';
 
-var user,options;
+var user, options;
 if (!G.autonomously) {
   user = G.USER_INFO || {};
   options = G.OPTIONS || {};
   var token = G.token || {};
-  if (!token) { token = null; }
-  if (!user) { user = {}; }
-  if (!options) { options = []; }
+  if (!token) {
+    token = null;
+  }
+  if (!user) {
+    user = {};
+  }
+  if (!options) {
+    options = [];
+  }
 } else {
   if (G.USER_INFO) {
     Storage.set(G.storage_key, G.USER_INFO);
@@ -54,7 +60,10 @@ export const loginMutation = {
    * 设置用户头像
    */
   ['SET_USER_HEAD'](state, userImgPath) {
-    if ((userImgPath || userImgPath === '') && typeof userImgPath === 'string') {
+    if (
+      (userImgPath || userImgPath === '') &&
+      typeof userImgPath === 'string'
+    ) {
       state.loginInfo.userHeadAddress = userImgPath;
       G.USER_INFO = state.loginInfo;
       if (G.autonomously) {
@@ -93,12 +102,12 @@ export const loginMutation = {
     // Storage.set(G.token_key, token);
     state.token = token;
     G.token = token;
-    cookie.setCookie("token", G.token);
+    cookie.setCookie('token', G.token);
   },
   /**
    * 退出
    */
-  ["LOGOUT_USER"](state) {
+  ['LOGOUT_USER'](state) {
     if (!G.autonomously) {
       G.token = null;
       G.OPTIONS = null;

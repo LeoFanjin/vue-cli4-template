@@ -22,14 +22,14 @@ const routes = [
     // this generates a separate chunk (index.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-        import(/* webpackChunkName: "index" */ '../ap-base/index.vue'),
+      import(/* webpackChunkName: "index" */ '@/ap-base/index.vue'),
     children: [
       {
         path: 'home',
         name: 'Home',
         component: () =>
           import(
-            /* webpackChunkName: "home" */ '../ap-base/system/home/main.vue'
+            /* webpackChunkName: "home" */ '@/ap-base/system/home/main.vue'
           )
       },
       // require('./views/demo/router'),
@@ -39,24 +39,22 @@ const routes = [
         name: '_404',
         component: () =>
           import(
-            /* webpackChunkName: "_404" */ '../ap-base/system/error/404/main.vue'
+            /* webpackChunkName: "_404" */ '@/ap-base/system/error/404/main.vue'
           )
       }
-    ],
+    ]
   },
   {
     path: '/login',
     name: 'Login',
     component: () =>
-      import(
-        /* webpackChunkName: "login" */ '../ap-base/system/login/main.vue'
-      )
+      import(/* webpackChunkName: "login" */ '@/ap-base/system/login/main.vue')
   },
   {
     path: '*',
     name: '404',
     component: () =>
-      import(/* webpackChunkName: "404" */ '../ap-base/system/404/main.vue')
+      import(/* webpackChunkName: "404" */ '@/ap-base/system/404/main.vue')
   }
 ];
 

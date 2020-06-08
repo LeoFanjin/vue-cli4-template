@@ -1,12 +1,12 @@
-import {API} from "utils";
+import { API } from 'utils';
 
 /***
  * 查询所有的组织机构及岗位
  */
-export const queryOrganization = ({commit}, params) => {
+export const queryOrganization = ({ commit }, params) => {
   var param = {
-    url: G.base_api + "/ap-system/findOrganization.do",
-    dataType: "json",
+    url: G.base_api + '/ap-system/findOrganization.do',
+    dataType: 'json',
     commit: commit,
     data: params
   };
@@ -16,10 +16,10 @@ export const queryOrganization = ({commit}, params) => {
 /***
  * 保存组织机构
  */
-export const saveOrgan = ({commit}, params) => {
+export const saveOrgan = ({ commit }, params) => {
   var param = {
-    url: G.base_api + "/ap-system/saveOrganization.do",
-    dataType: "json",
+    url: G.base_api + '/ap-system/saveOrganization.do',
+    dataType: 'json',
     commit: commit,
     data: params
   };
@@ -29,10 +29,10 @@ export const saveOrgan = ({commit}, params) => {
 /***
  * 修改组织机构
  */
-export const modifyOrgan = ({commit}, params) => {
+export const modifyOrgan = ({ commit }, params) => {
   var param = {
-    url: G.base_api + "/ap-system/modifyOrganization.do",
-    dataType: "json",
+    url: G.base_api + '/ap-system/modifyOrganization.do',
+    dataType: 'json',
     commit: commit,
     data: params
   };
@@ -42,10 +42,10 @@ export const modifyOrgan = ({commit}, params) => {
 /***
  * 删除组织机构
  */
-export const removeOrgan = ({commit}, params) => {
+export const removeOrgan = ({ commit }, params) => {
   var param = {
-    url: G.base_api + "/ap-system/removeOrganization.do",
-    dataType: "json",
+    url: G.base_api + '/ap-system/removeOrganization.do',
+    dataType: 'json',
     commit: commit,
     data: params
   };

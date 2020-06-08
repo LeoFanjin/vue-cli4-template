@@ -7,7 +7,12 @@ export const getCurrentResource = state => {
 export const getResource = state => {
   if (!_.findWhere(state.resource, { path: '/home' }) && G.homeLocation) {
     var home = {
-      id: '999', isActive: false, name: '首页', path: '/home', open: false, icon: 'icon-ap-homepage'
+      id: '999',
+      isActive: false,
+      name: '首页',
+      path: '/home',
+      open: false,
+      icon: 'icon-ap-homepage'
     };
 
     if (G.homeLocation === 'top') {

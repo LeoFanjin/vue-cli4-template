@@ -1,4 +1,4 @@
-import {resource as resourceUtil} from 'utils';
+import { resource as resourceUtil } from 'utils';
 
 export const resourceState = {
   resourceList: [],
@@ -16,18 +16,23 @@ export const resourceState = {
 };
 
 export const resourceMutation = {
-  'SET_CURRENT_RESOURCE' (state, currentResource) {
+  SET_CURRENT_RESOURCE(state, currentResource) {
     state.currentResource = currentResource;
   },
-  'SET_RESOURCE' (state, resources) {
-    let {systemMenus, linkMenus, externalMenus, otherMenus} = resourceUtil.generateMenus(resources);
+  SET_RESOURCE(state, resources) {
+    let {
+      systemMenus,
+      linkMenus,
+      externalMenus,
+      otherMenus
+    } = resourceUtil.generateMenus(resources);
 
     state.resource = systemMenus;
     state.linkResource = linkMenus;
     state.externalResource = externalMenus;
     state.otherResource = otherMenus;
   },
-  'SET_SHOW_CONTENT' (state, flag) {
+  SET_SHOW_CONTENT(state, flag) {
     state.showContent = flag;
   }
 };

@@ -1,13 +1,13 @@
 import _ from 'underscore';
-import common from "./common";
-import head from "./head";
-import login from "./login";
-import server from "./server";
+import common from './common';
+import head from './head';
+import login from './login';
+import server from './server';
 
-import auth from "./system/auth";
-import dict from "./system/dict";
-import organ from "./system/organ";
-import resource from "./system/resource";
+import auth from './system/auth';
+import dict from './system/dict';
+import organ from './system/organ';
+import resource from './system/resource';
 
 var zh = {};
 zh = _.extend(zh, common);

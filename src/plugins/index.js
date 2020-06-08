@@ -2,7 +2,7 @@
 import './G';
 
 // 页面头部加载条
-import '../ap-base/static/js/pace/pace.min';
+import '@/ap-base/static/js/pace/pace.min';
 
 // element组件引入
 import './element.js';
@@ -13,8 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/less/bootstrap.less';
 
 // 引入ap样式
-import '../ap-base/static/css/main.less';
+import '@/ap-base/static/css/main.less';
 
 // 引入图标库
-import '../ap-base/static/fonts/font-class/iconfont.css';
-// import './ap-base/static/fonts/mh-icon/iconfont.css';
+import '@/ap-base/static/fonts/font-class/iconfont.css';

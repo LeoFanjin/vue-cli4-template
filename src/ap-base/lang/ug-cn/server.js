@@ -1,5 +1,5 @@
 module.exports = {
-  "server": {
+  server: {
     result: {
       LOGIN_FAIL: '登录失败',
       UN_LOGIN: '请先登录后再进行此操作',
@@ -14,7 +14,7 @@ module.exports = {
       SELECT_FAIL_ERROE_ATTRIBUTE: '参数错误,查询失败',
       SELECT_FAIL_SERVICE_ERROR: '系统错误,查询失败',
       UNAUTHORIZED: '当前用户未授权',
-      DATABASE_ERROR: '系统错误',         //数据库异常
+      DATABASE_ERROR: '系统错误', //数据库异常
       SERVICE_ERROR: '系统异常',
       REQUEST_METHOD_ERROR: '请求方法错误',
       UNKNOW_ERROR: '未知错误'
