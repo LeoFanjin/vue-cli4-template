@@ -1,17 +1,20 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import { Storage, logout } from 'utils';
 
 Vue.use(VueRouter);
+
+G.homePage = G.homePage || '/home';
 
 // 解决vue-router3.0以上重复点菜单报错的问题
 // 其实就是捕捉到错误但不做处理
 const originalPush = VueRouter.prototype.push;
 VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err);
+  return originalPush.call(this, location).catch((err) => err);
 };
 const originalReplace = VueRouter.prototype.replace;
 VueRouter.prototype.replace = function replace(location) {
-  return originalReplace.call(this, location).catch(err => err);
+  return originalReplace.call(this, location).catch((err) => err);
 };
 
 const routes = [
@@ -32,8 +35,8 @@ const routes = [
             /* webpackChunkName: "home" */ '@/ap-base/system/home/main.vue'
           )
       },
-      // require('./views/demo/router'),
-      // require('./views/about/router'),
+      require('../views/demo/router'),
+      require('../views/about/router'),
       {
         path: '404',
         name: '_404',
@@ -42,7 +45,30 @@ const routes = [
             /* webpackChunkName: "_404" */ '@/ap-base/system/error/404/main.vue'
           )
       }
-    ]
+    ],
+    beforeEnter: (to, from, next) => {
+      let user_info = '';
+      if (!G.autonomously) {
+        user_info = G.USER_INFO;
+      } else {
+        user_info = Storage.get(G.storage_key);
+      }
+      if (to && to.path !== G.loginPage) {
+        if (_.isEmpty(user_info)) {
+          logout();
+        } else {
+          next();
+        }
+      } else if (to && to.path === G.loginPage) {
+        if (!_.isEmpty(user_info)) {
+          next(G.homePage);
+        } else {
+          next();
+        }
+      }
+      next();
+    },
+    redirect: G.homePage
   },
   {
     path: '/login',

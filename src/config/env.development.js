@@ -1,6 +1,6 @@
 module.exports = {
   env: 'development', // 环境变量
-  isRelyAPI: false, // 是否依赖后台接口
+  isRelyAPI: true, // 是否依赖后台接口
   homePage: '/home', // 首页路由
   homeLocation: 'top', // 首页位置 (left: 左侧、top: 顶部)
   is_i18n: false, // 是否支持多预言

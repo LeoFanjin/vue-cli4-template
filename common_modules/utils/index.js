@@ -1,5 +1,6 @@
 import { resource as resourceUtil } from './resource';
 import { API as APIUtil } from './api';
+import { Axios as AxiosUtil } from './axioService';
 import { Ajax as AjaxUtil } from './ajax';
 import { Storage as StorageUtil } from './storage';
 import { Validate as ValidateUtil } from './validate';
@@ -12,6 +13,7 @@ import { cookie as cookieUtil } from './cookie';
 import { myBrowser as myBrowserUtil } from './agent';
 
 export const API = APIUtil;
+export const Axios = AxiosUtil;
 export const resource = resourceUtil;
 export const Ajax = AjaxUtil;
 export const Storage = StorageUtil;

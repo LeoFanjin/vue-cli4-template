@@ -5,13 +5,66 @@ import Vue from 'vue';
 import App from './App.vue';
 import i18n from './i18n';
 import router from './router';
-import store from './store';
+// import store from './store';
 
-Vue.config.productionTip = false;
+// 用于单点登录发起jsonp请求
+import jsonp from 'jsonp';
 
-new Vue({
-  router,
-  store,
-  i18n,
-  render: h => h(App)
-}).$mount('#app');
+// 单点登录
+const GetQueryString = (name) => {
+  let reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`);
+  let r = window.location.search.substr(1).match(reg);
+  if (r != null) return unescape(r[2]);
+  return '';
+};
+let token = GetQueryString('t') || '';
+if (!token) {
+  let name = `token_${G.sys_sign}`;
+  let r = new RegExp(`(?:^|;\\s*)${name}=([^;]*)`),
+    m = document.cookie.match(r);
+  token = (m && m[1]) || '';
+}
+if (token) {
+  let jump = GetQueryString(`jump_${G.sys_sign}`);
+  G.token = token;
+  document.cookie = `token_${G.sys_sign}=${token}`;
+  G.jump = jump;
+  document.cookie = `jump_${G.sys_sign}=${jump}`;
+  jsonp(
+    `${G.base_api}/ap-system/UserLoginForChild?authorization=${token}`,
+    {
+      timeout: 60000
+    },
+    (err, results) => {
+      if (err) {
+        Vue.prototype.$message.error(
+          typeof err === 'string' ? err : '登录失败'
+        );
+      } else {
+        if (results.status === 1) {
+          let data = results.data;
+          if (data.organizationEntity && data.userEntity) {
+            data.userEntity.organ = data.organizationEntity;
+          }
+          G.USER_INFO = data.userEntity;
+          G.OPTIONS = data.operationEntities;
+
+          // 单点登录成功后初始化Vue
+          // import只能写在顶部，但这里需要在登录成功后再初始化store，防止初始化store时还没给用户信息赋值
+          const store = require('./store/index').default;
+          Vue.config.productionTip = false;
+          new Vue({
+            i18n,
+            router,
+            store,
+            render: (h) => h(App)
+          }).$mount('#app');
+        } else {
+          Vue.prototype.$message.error(
+            typeof results.message === 'string' ? err : '登录失败'
+          );
+        }
+      }
+    }
+  );
+}

@@ -1,4 +1,4 @@
-import { API } from 'utils';
+import { API, Axios } from 'utils';
 import Promise from 'bluebird';
 
 /**
@@ -83,7 +83,7 @@ export const removeDataItemById = ({ commit }, params) => {
   return API.post(param);
 };
 
-export const initDict = ({ commit, state }, params) => {
+/* export const initDict = ({ commit, state }, params) => {
   if (!state.isInit) {
     var param = {
       url: G.base_api + '/ap-system/findLibrary.do',
@@ -93,6 +93,25 @@ export const initDict = ({ commit, state }, params) => {
     };
 
     return API.post(param).then(function(data) {
+      if (_.isArray(data)) {
+        commit('INIT_DICT', data);
+        return Promise.resolve(null);
+      }
+    });
+  } else {
+    return Promise.resolve(null);
+  }
+}; */
+
+export const initDict = ({ commit, state }, params) => {
+  if (!state.isInit) {
+    var param = {
+      url: '/ap-system/findLibrary.do',
+      commit: commit,
+      data: params
+    };
+
+    Axios.post(param).then((data) => {
       if (_.isArray(data)) {
         commit('INIT_DICT', data);
         return Promise.resolve(null);

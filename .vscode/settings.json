@@ -2,6 +2,7 @@
     "extensions.autoUpdate": false,
     "prettier.eslintIntegration": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
     "eslint.validate": ["javascript", "javascriptreact", "vue"],
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"

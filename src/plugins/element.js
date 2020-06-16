@@ -1,8 +1,6 @@
 import Vue from 'vue';
-import {
-  Button,
-  Loading
-} from 'element-ui';
+import { Button, Input, Loading } from 'element-ui';
 
 Vue.use(Button);
+Vue.use(Input);
 Vue.use(Loading);

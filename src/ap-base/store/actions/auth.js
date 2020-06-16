@@ -1,4 +1,4 @@
-import { API } from 'utils';
+import { API, Axios } from 'utils';
 
 /**
  * 查询我的资源权限
@@ -6,7 +6,7 @@ import { API } from 'utils';
  * @param params
  * @returns {*}
  */
-export const queryMyResources = ({ commit }, params) => {
+/* export const queryMyResources = ({ commit }, params) => {
   var param = {
     url: G.base_api + '/ap-system/getUserResourceList.do',
     dataType: 'json',
@@ -19,6 +19,20 @@ export const queryMyResources = ({ commit }, params) => {
       commit('SET_SHOW_CONTENT', true);
     }
 
+    return Promise.resolve(data);
+  });
+}; */
+export const queryMyResources = ({ commit }, params) => {
+  var param = {
+    url: '/ap-system/getUserResourceList.do',
+    data: params
+  };
+
+  return Axios.post(param).then(function(data) {
+    if (data) {
+      commit('SET_RESOURCE', data);
+      commit('SET_SHOW_CONTENT', true);
+    }
     return Promise.resolve(data);
   });
 };
