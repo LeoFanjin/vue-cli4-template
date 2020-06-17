@@ -42,6 +42,7 @@ Ajax.dealSuccess = res => {
  * ajax请求异常处理
  */
 Ajax.dealCommonError = res => {
+  console.log('res', res);
   try {
     if (res.status === 403 || res.status === 401) {
       logout();

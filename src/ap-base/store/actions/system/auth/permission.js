@@ -1,16 +1,15 @@
-import { API } from 'utils';
+import { Axios } from 'utils';
 
 /***
  * 获取全部许可
  */
 export const queryAllPermission = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findPermission.do',
-    dataType: 'json',
+    url: '/ap-system/findPermission.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -18,12 +17,11 @@ export const queryAllPermission = ({ commit }, params) => {
  */
 export const queryPermissionByUser = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findPermissionByUser.do',
-    dataType: 'json',
+    url: '/ap-system/findPermissionByUser.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -31,13 +29,12 @@ export const queryPermissionByUser = ({ commit }, params) => {
  */
 export const queryPermissionByOrgan = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findPermissionByOrgan.do',
-    dataType: 'json',
+    url: '/ap-system/findPermissionByOrgan.do',
     commit: commit,
     data: params
   };
 
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -45,12 +42,11 @@ export const queryPermissionByOrgan = ({ commit }, params) => {
  */
 export const findPermissionByRole = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findPermissionByRole.do',
-    dataType: 'json',
+    url: '/ap-system/findPermissionByRole.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -58,12 +54,11 @@ export const findPermissionByRole = ({ commit }, params) => {
  */
 export const savePermission = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/savePermission.do',
-    dataType: 'json',
+    url: '/ap-system/savePermission.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -71,12 +66,11 @@ export const savePermission = ({ commit }, params) => {
  */
 export const removePermission = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/removePermission.do',
-    dataType: 'json',
+    url: '/ap-system/removePermission.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -84,12 +78,11 @@ export const removePermission = ({ commit }, params) => {
  */
 export const modifyPermission = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/modifyPermission.do',
-    dataType: 'json',
+    url: '/ap-system/modifyPermission.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -97,13 +90,12 @@ export const modifyPermission = ({ commit }, params) => {
  */
 export const bindPermissionUser = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/saveUserPermissionRel.do',
-    dataType: 'json',
+    url: '/ap-system/saveUserPermissionRel.do',
     commit: commit,
     data: params
   };
 
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -111,13 +103,12 @@ export const bindPermissionUser = ({ commit }, params) => {
  */
 export const bindPermissionOrgan = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/savePermissionOrganRel.do',
-    dataType: 'json',
+    url: '/ap-system/savePermissionOrganRel.do',
     commit: commit,
     data: params
   };
 
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -125,10 +116,9 @@ export const bindPermissionOrgan = ({ commit }, params) => {
  */
 export const bindPermissionRole = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/savePermissionRoleRel.do',
-    dataType: 'json',
+    url: '/ap-system/savePermissionRoleRel.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };

@@ -1,15 +1,14 @@
-import { API } from 'utils';
+import { Axios } from 'utils';
 
 /** 登录*/
 export const login = ({ commit }, formLogin) => {
   var param = {
-    url: G.base_api + '/ap-system/UserLogin.do',
+    url: '/ap-system/UserLogin.do',
     data: formLogin,
     commit: commit,
-    dataType: 'json'
   };
 
-  return API.post(param).then(function(data) {
+  return Axios.post(param).then(function(data) {
     if (data) {
       // data = {data: data};
       if (data.data.userHeadEntity && !_.isEmpty(data.data.userHeadEntity)) {
@@ -32,12 +31,12 @@ export const login = ({ commit }, formLogin) => {
 /** 退出 */
 export const logout = ({ commit }) => {
   var params = {
-    url: G.base_api + '/ap-system/logout.do',
+    url: '/ap-system/logout.do',
     data: {},
     commit: commit
   };
 
-  return API.basePost(params).then(function() {
+  return Axios.basePost(params).then(function() {
     commit('LOGOUT_USER');
     return Promise.resolve(null);
   });

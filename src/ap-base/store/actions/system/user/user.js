@@ -1,4 +1,4 @@
-import { API } from 'utils';
+import { Axios } from 'utils';
 
 /**
  * 用户列表
@@ -9,12 +9,11 @@ export const queryEmployeeInfoList = ({ commit }, content) => {
   }
 
   var param = {
-    url: G.base_api + '/ap-system/findUser.do',
+    url: '/ap-system/findUser.do',
     data: content,
-    commit: commit,
-    dataType: 'json'
+    commit: commit
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -22,12 +21,11 @@ export const queryEmployeeInfoList = ({ commit }, content) => {
  */
 export const saveUserRegInfo = ({ commit }, content) => {
   var param = {
-    url: G.base_api + '/ap-system/saveUser.do',
+    url: '/ap-system/saveUser.do',
     data: content,
-    commit: commit,
-    dataType: 'json'
+    commit: commit
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -35,12 +33,11 @@ export const saveUserRegInfo = ({ commit }, content) => {
  */
 export const queryEmployeeInfoDetail = ({ commit }, content) => {
   var param = {
-    url: G.base_api + '/ap-system/findUserInfo.do',
+    url: '/ap-system/findUserInfo.do',
     data: content,
-    commit: commit,
-    dataType: 'json'
+    commit: commit
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -48,12 +45,11 @@ export const queryEmployeeInfoDetail = ({ commit }, content) => {
  */
 export const modifyUserRegInfo = ({ commit }, content) => {
   var param = {
-    url: G.base_api + '/ap-system/modifyUser.do',
+    url: '/ap-system/modifyUser.do',
     data: content,
-    commit: commit,
-    dataType: 'json'
+    commit: commit
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -61,12 +57,11 @@ export const modifyUserRegInfo = ({ commit }, content) => {
  */
 export const removeEmployeeInfo = ({ commit }, content) => {
   var param = {
-    url: G.base_api + '/ap-system/removeUser.do',
+    url: '/ap-system/removeUser.do',
     data: content,
-    commit: commit,
-    dataType: 'json'
+    commit: commit
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -74,12 +69,11 @@ export const removeEmployeeInfo = ({ commit }, content) => {
  */
 export const initPassword = ({ commit }, content) => {
   var param = {
-    url: G.base_api + '/ap-system/initUserPassword.do',
+    url: '/ap-system/initUserPassword.do',
     data: content,
-    commit: commit,
-    dataType: 'json'
+    commit: commit
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -87,12 +81,11 @@ export const initPassword = ({ commit }, content) => {
  */
 export const modifyPassword = ({ commit }, content) => {
   var param = {
-    url: G.base_api + '/ap-system/settingUserPassword.do',
+    url: '/ap-system/settingUserPassword.do',
     data: content,
-    commit: commit,
-    dataType: 'json'
+    commit: commit
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -100,13 +93,12 @@ export const modifyPassword = ({ commit }, content) => {
  */
 export const modifyMyInfo = ({ commit }, content) => {
   var param = {
-    url: G.base_api + '/ap-system/modifyUserInfo.do',
+    url: '/ap-system/modifyUserInfo.do',
     data: content,
-    commit: commit,
-    dataType: 'json'
+    commit: commit
   };
 
-  return API.post(param).then(() => {
+  return Axios.post(param).then(() => {
     commit('UPDATE_MY_INFO', content);
     return Promise.resolve(null);
   });
@@ -117,13 +109,12 @@ export const modifyMyInfo = ({ commit }, content) => {
  */
 export const findUserHead = ({ commit }, content) => {
   var param = {
-    url: G.base_api + '/ap-system/findUserHeadImage.do',
+    url: '/ap-system/findUserHeadImage.do',
     data: content,
-    commit: commit,
-    dataType: 'json'
+    commit: commit
   };
 
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -131,13 +122,11 @@ export const findUserHead = ({ commit }, content) => {
  */
 export const removeUserHead = ({ commit }, content) => {
   var param = {
-    url: G.base_api + '/ap-system/removeUserHeadImage.do',
+    url: '/ap-system/removeUserHeadImage.do',
     data: content,
-    commit: commit,
-    dataType: 'json'
+    commit: commit
   };
-
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**

@@ -1,16 +1,15 @@
-import { API } from 'utils';
+import { Axios } from 'utils';
 
 /***
  * 获取全部组织机构及人员
  */
 export const queryAuthOrganization = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findUserOrganizationTree.do',
-    dataType: 'json',
+    url: '/ap-system/findUserOrganizationTree.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /***
@@ -18,10 +17,9 @@ export const queryAuthOrganization = ({ commit }, params) => {
  */
 export const queryAllResource = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findResourceOperationTree.do',
-    dataType: 'json',
+    url: '/ap-system/findResourceOperationTree.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };

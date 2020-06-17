@@ -1,4 +1,6 @@
 import { API, Axios } from 'utils';
+import axios from 'axios';
+import qs from 'qs';
 
 /**
  * 查询我的资源权限
@@ -14,6 +16,7 @@ import { API, Axios } from 'utils';
   };
 
   return API.post(param).then(function(data) {
+    console.log(data);
     if (data) {
       commit('SET_RESOURCE', data);
       commit('SET_SHOW_CONTENT', true);
@@ -27,13 +30,12 @@ export const queryMyResources = ({ commit }, params) => {
     url: '/ap-system/getUserResourceList.do',
     data: params
   };
-
   return Axios.post(param).then(function(data) {
     if (data) {
       commit('SET_RESOURCE', data);
       commit('SET_SHOW_CONTENT', true);
     }
-    return Promise.resolve(data);
+    return Promise.resolve(data.data);
   });
 };
 

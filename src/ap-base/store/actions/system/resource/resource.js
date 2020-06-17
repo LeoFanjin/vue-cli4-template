@@ -1,16 +1,15 @@
-import { API } from 'utils';
+import { Axios } from 'utils';
 
 /**
  * 查询所有资源
  */
 export const queryResource = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findResource.do',
-    dataType: 'json',
+    url: '/ap-system/findResource.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -18,12 +17,11 @@ export const queryResource = ({ commit }, params) => {
  */
 export const queryResourceDetail = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findResourceInfo.do',
-    dataType: 'json',
+    url: '/ap-system/findResourceInfo.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -31,12 +29,11 @@ export const queryResourceDetail = ({ commit }, params) => {
  */
 export const removeResource = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/removeResource.do',
-    dataType: 'json',
+    url: '/ap-system/removeResource.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -44,12 +41,11 @@ export const removeResource = ({ commit }, params) => {
  */
 export const addResource = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/saveResource.do',
-    dataType: 'json',
+    url: '/ap-system/saveResource.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -57,12 +53,11 @@ export const addResource = ({ commit }, params) => {
  */
 export const modifyResource = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/modifyResource.do',
-    dataType: 'json',
+    url: '/ap-system/modifyResource.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -70,10 +65,9 @@ export const modifyResource = ({ commit }, params) => {
  */
 export const changePositionByResource = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/sortResource.do',
-    dataType: 'json',
+    url: '/ap-system/sortResource.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };

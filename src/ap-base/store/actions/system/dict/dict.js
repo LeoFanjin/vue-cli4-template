@@ -1,5 +1,4 @@
-import { API, Axios } from 'utils';
-import Promise from 'bluebird';
+import { Axios } from 'utils';
 
 /**
  * 根据类型查询数据字典项
@@ -11,13 +10,12 @@ export const queryDataItemByType = (store, params) => {
   if (key) {
     if (!store.state[key] || store.state[key].length === 0) {
       var param = {
-        url: G.base_api + '/ap-system/findChildLibrary.do',
-        dataType: 'json',
+        url: '/ap-system/findChildLibrary.do',
         commit: store.commit,
         data: params
       };
 
-      return API.post(param).then(function(data) {
+      return Axios.post(param).then(function(data) {
         if (data && data.length > 0) {
           store.commit('SET_DICT', { key: params.libraryCode, value: data });
         }
@@ -36,12 +34,11 @@ export const queryDataItemByType = (store, params) => {
  */
 export const queryDataItemList = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findLibrary.do',
-    dataType: 'json',
+    url: '/ap-system/findLibrary.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -49,12 +46,11 @@ export const queryDataItemList = ({ commit }, params) => {
  */
 export const saveDict = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/saveLibrary.do',
-    dataType: 'json',
+    url: '/ap-system/saveLibrary.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -62,12 +58,11 @@ export const saveDict = ({ commit }, params) => {
  */
 export const modifyDataItemById = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/modifyLibrary.do',
-    dataType: 'json',
+    url: '/ap-system/modifyLibrary.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -75,12 +70,11 @@ export const modifyDataItemById = ({ commit }, params) => {
  */
 export const removeDataItemById = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/removeLibrary.do',
-    dataType: 'json',
+    url: '/ap-system/removeLibrary.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /* export const initDict = ({ commit, state }, params) => {

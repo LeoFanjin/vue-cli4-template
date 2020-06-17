@@ -1,16 +1,15 @@
-import { API } from 'utils';
+import { Axios } from 'utils';
 
 /**
  * 查询对应操作
  */
 export const queryOperation = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findOperation.do',
-    dataType: 'json',
+    url: '/ap-system/findOperation.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -18,12 +17,11 @@ export const queryOperation = ({ commit }, params) => {
  */
 export const addOperation = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/saveOperation.do',
-    dataType: 'json',
+    url: '/ap-system/saveOperation.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -31,12 +29,11 @@ export const addOperation = ({ commit }, params) => {
  */
 export const removeOperation = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/removeOperation.do',
-    dataType: 'json',
+    url: '/ap-system/removeOperation.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -44,12 +41,11 @@ export const removeOperation = ({ commit }, params) => {
  */
 export const modifyOperation = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/modifyOperation.do',
-    dataType: 'json',
+    url: '/ap-system/modifyOperation.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -57,12 +53,11 @@ export const modifyOperation = ({ commit }, params) => {
  */
 export const bindPermissionOpe = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/savePermissionOperationRel.do',
-    dataType: 'json',
+    url: '/ap-system/savePermissionOperationRel.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -70,10 +65,9 @@ export const bindPermissionOpe = ({ commit }, params) => {
  */
 export const queryOperationsByPermission = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findOperationByPermission.do',
-    dataType: 'json',
+    url: '/ap-system/findOperationByPermission.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };

@@ -1,16 +1,15 @@
-import { API } from 'utils';
+import { Axios } from 'utils';
 
 /***
  * 查询所有的组织机构及岗位
  */
 export const queryOrganization = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findOrganization.do',
-    dataType: 'json',
+    url: '/ap-system/findOrganization.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /***
@@ -18,12 +17,11 @@ export const queryOrganization = ({ commit }, params) => {
  */
 export const saveOrgan = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/saveOrganization.do',
-    dataType: 'json',
+    url: '/ap-system/saveOrganization.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /***
@@ -31,12 +29,11 @@ export const saveOrgan = ({ commit }, params) => {
  */
 export const modifyOrgan = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/modifyOrganization.do',
-    dataType: 'json',
+    url: '/ap-system/modifyOrganization.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /***
@@ -44,10 +41,9 @@ export const modifyOrgan = ({ commit }, params) => {
  */
 export const removeOrgan = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/removeOrganization.do',
-    dataType: 'json',
+    url: '/ap-system/removeOrganization.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };

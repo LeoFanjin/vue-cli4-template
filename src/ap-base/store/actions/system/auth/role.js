@@ -1,16 +1,15 @@
-import { API } from 'utils';
+import { Axios } from 'utils';
 
 /***
  * 获取全部角色
  */
 export const queryAllRole = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findRole.do',
-    dataType: 'json',
+    url: '/ap-system/findRole.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -18,12 +17,11 @@ export const queryAllRole = ({ commit }, params) => {
  */
 export const queryRoleByUser = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/findUserRole.do',
-    dataType: 'json',
+    url: '/ap-system/findUserRole.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /***
@@ -31,12 +29,11 @@ export const queryRoleByUser = ({ commit }, params) => {
  */
 export const saveRole = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/saveRole.do',
-    dataType: 'json',
+    url: '/ap-system/saveRole.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /***
@@ -44,12 +41,11 @@ export const saveRole = ({ commit }, params) => {
  */
 export const modifyRole = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/modifyRole.do',
-    dataType: 'json',
+    url: '/ap-system/modifyRole.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /***
@@ -57,12 +53,11 @@ export const modifyRole = ({ commit }, params) => {
  */
 export const removeRole = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/removeRole.do',
-    dataType: 'json',
+    url: '/ap-system/removeRole.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
 
 /**
@@ -70,10 +65,9 @@ export const removeRole = ({ commit }, params) => {
  */
 export const saveRoleBind = ({ commit }, params) => {
   var param = {
-    url: G.base_api + '/ap-system/saveUserRoleRel.do',
-    dataType: 'json',
+    url: '/ap-system/saveUserRoleRel.do',
     commit: commit,
     data: params
   };
-  return API.post(param);
+  return Axios.post(param);
 };
