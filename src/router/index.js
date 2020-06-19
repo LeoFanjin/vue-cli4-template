@@ -37,6 +37,7 @@ const routes = [
       },
       require('../views/demo/router'),
       require('../views/about/router'),
+      require('../views/registeredUser/router'),
       {
         path: '404',
         name: '_404',

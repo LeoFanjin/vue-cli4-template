@@ -69,7 +69,10 @@ module.exports = {
       // })
     ]
   }, */
-  configureWebpack: config => {
+  configureWebpack: (config) => {
+    if (process.env.NODE_ENV === 'production') {
+      config.devtool = 'cheap-module-source-map';
+    }
     config.resolve.modules.push('common_modules');
     // 初始配置里已有类型：'.mjs', '.js', '.jsx', '.vue', '.json', '.wasm'
     config.resolve.extensions.push('.ts', '.tsx');

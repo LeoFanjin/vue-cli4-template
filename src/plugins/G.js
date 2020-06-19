@@ -1,9 +1,10 @@
 import { myBrowser } from 'utils';
 
-const env = process.env.NODE_ENV || 'development';
-let config = require(`../config/env.${env}`);
+import appConfig from '../config/index';
 
-Object.assign(G, config, APP_CONFIG[env], {
+let indexConfig = Object.assign({}, G);
+
+Object.assign(G, appConfig, {
   sys_sign: 'system_sign',
   errorPage: '/error',
   messageLock: false,
@@ -11,6 +12,12 @@ Object.assign(G, config, APP_CONFIG[env], {
   loginPage: '/login',
   maskLevel: 0
 });
+
+indexConfig.system_code && (G.system_code = indexConfig.system_code);
+indexConfig.title && (G.title = indexConfig.title);
+indexConfig.base_api && (G.base_api = indexConfig.base_api);
+indexConfig.portalPage && (G.portalPage = indexConfig.portalPage);
+indexConfig.loginPage && (G.loginPage = indexConfig.loginPage);
 
 if (!G.isRelyAPI) {
   G.localResource = require('@/ap-base/local-resources');

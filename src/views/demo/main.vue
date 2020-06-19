@@ -7,24 +7,33 @@ export default {
         <el-input v-model={this.inputText}></el-input>
         <div>{this.inputText}</div>
         <div>{this.getTextFilter}</div>
-        <el-button type="primary" size="medium" onClick={() => this.status.showSortForm = true}>弹出层</el-button>
+        <el-button
+          type="primary"
+          size="medium"
+          onClick={() => (this.status.showSortForm = true)}
+        >
+          弹出层
+        </el-button>
         <el-dialog
           width="600px"
           custom-class="list-dialog"
           visible={this.status.showSortForm}
-          {
-            ...{
-              on: {
-                'update:visible': (val) => this.status.showSortForm = val
-              }
+          {...{
+            on: {
+              'update:visible': (val) => (this.status.showSortForm = val)
             }
-          }
+          }}
         >
           <div slot="title">
             <span class="el-dialog__title">任务分拣</span>
           </div>
           <div slot="footer" class="form-footer">
-            <el-button size="small" onClick={() => this.status.showSortForm = false}>关闭</el-button>
+            <el-button
+              size="small"
+              onClick={() => (this.status.showSortForm = false)}
+            >
+              关闭
+            </el-button>
           </div>
         </el-dialog>
       </div>
@@ -38,11 +47,10 @@ export default {
       }
     };
   },
-  filters: {
-  },
+  filters: {},
   computed: {
     getTextFilter() {
-      return `prefix-${this.inputText}-post`
+      return `prefix-${this.inputText}-post`;
     }
   },
   methods: {}

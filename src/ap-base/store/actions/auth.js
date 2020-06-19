@@ -1,6 +1,4 @@
-import { API, Axios } from 'utils';
-import axios from 'axios';
-import qs from 'qs';
+import { Axios } from 'utils';
 
 /**
  * 查询我的资源权限
