@@ -12,7 +12,7 @@ module.exports = {
     'window.jQuery': true,
     $: true,
     _: true,
-    // APP_CONFIG: true,
+    extra: true,
     G: true
   },
   rules: {

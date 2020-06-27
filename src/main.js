@@ -5,10 +5,20 @@ import Vue from 'vue';
 import App from './App.vue';
 import i18n from './i18n';
 import router from './router';
-// import store from './store';
+import store from './store';
 
 // 用于单点登录发起jsonp请求
 import jsonp from 'jsonp';
+
+Vue.config.productionTip = false;
+
+// 非单点登录
+/* new Vue({
+  i18n,
+  router,
+  store,
+  render: (h) => h(App)
+}).$mount('#app'); */
 
 // 单点登录
 const GetQueryString = (name) => {
@@ -50,9 +60,6 @@ if (token) {
           G.OPTIONS = data.operationEntities;
 
           // 单点登录成功后初始化Vue
-          // import只能写在顶部，但这里需要在登录成功后再初始化store，防止初始化store时还没给用户信息赋值
-          const store = require('./store/index').default;
-          Vue.config.productionTip = false;
           new Vue({
             i18n,
             router,

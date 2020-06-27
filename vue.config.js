@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   lintOnSave: true,
@@ -17,6 +18,7 @@ module.exports = {
       }
     } */
   },
+  // publicPath: '/ap/web/',
   /* configureWebpack: {
     devtool: 'source-map',
     resolve: {
@@ -55,19 +57,7 @@ module.exports = {
           }
         }
       }
-    },
-    plugins: [
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-        Popper: ['popper.js', 'default'],
-        _: 'underscore'
-      }),
-      // new webpack.DefinePlugin({
-      //   _config_: JSON.stringify(config_),
-      // })
-    ]
+    }
   }, */
   configureWebpack: (config) => {
     if (process.env.NODE_ENV === 'production') {
@@ -82,8 +72,15 @@ module.exports = {
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
         // Popper: ['popper.js', 'default'],
-        _: 'underscore'
+        _: 'underscore',
+        G: path.join(__dirname, './src/config/g.js')
       })
     );
   }
+  /* chainWebpack: (config) => {
+    config.plugin('html').tap((args) => {
+      args[0].title = '平台';
+      return args;
+    });
+  } */
 };
