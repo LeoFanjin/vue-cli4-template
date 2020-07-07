@@ -17,8 +17,6 @@ Object.assign(G, appConfig, {
   sys_sign: 'system_sign',
   errorPage: '/error',
   lang: 'zh',
-  USER_INFO: null,
-  OPTIONS: null,
   token: null,
   jump: null
 });

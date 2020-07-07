@@ -48,12 +48,7 @@ const routes = [
       }
     ],
     beforeEnter: (to, from, next) => {
-      let user_info = '';
-      if (!G.autonomously) {
-        user_info = G.USER_INFO;
-      } else {
-        user_info = Storage.get(G.storage_key);
-      }
+      let user_info = Storage.get(G.storage_key);
       if (to && to.path !== G.loginPage) {
         if (_.isEmpty(user_info)) {
           logout();

@@ -41,7 +41,7 @@ const logout = (self, jump) => {
     loginPage = G.jump;
   }
   if (!G.autonomously) {
-    cookie.removeCookie('token');
+    cookie.removeCookie(`token_${G.sys_sign}`);
   } else {
     Storage.remove(G.storage_key);
   }

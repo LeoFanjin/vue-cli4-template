@@ -1,8 +1,10 @@
 import { Storage, cookie } from 'utils';
 import _ from 'underscore';
 
-var user, options;
-if (!G.autonomously) {
+var user,
+  options,
+  token = G.token || {};
+/* if (!G.autonomously) {
   user = G.USER_INFO || {};
   options = G.OPTIONS || {};
   var token = G.token || {};
@@ -21,7 +23,9 @@ if (!G.autonomously) {
   }
   user = Storage.get(G.storage_key);
   options = Storage.get(G.options_key);
-}
+} */
+user = Storage.get(G.storage_key);
+options = Storage.get(G.options_key);
 //用户登录状态
 export const loginState = {
   //当前登录用户信息
@@ -33,7 +37,7 @@ export const loginState = {
 };
 export const loginMutation = {
   ['DELETE_USER'](state, messageId) {
-    state.loginInfo = state.loginInfo.filter(m => m.id != messageId);
+    state.loginInfo = state.loginInfo.filter((m) => m.id != messageId);
   },
   /**
    * 设置用户信息
@@ -41,7 +45,6 @@ export const loginMutation = {
    */
   ['SET_USER_INFO'](state, userInfo) {
     state.loginInfo = userInfo;
-    G.USER_INFO = state.loginInfo;
     if (G.autonomously) {
       Storage.set(G.storage_key, userInfo);
     }
@@ -51,7 +54,6 @@ export const loginMutation = {
    */
   ['UPDATE_MY_INFO'](state, userInfo) {
     state.loginInfo = _.extend(state.loginInfo, userInfo);
-    G.USER_INFO = state.loginInfo;
     if (G.autonomously) {
       Storage.set(G.storage_key, state.loginInfo);
     }
@@ -65,7 +67,6 @@ export const loginMutation = {
       typeof userImgPath === 'string'
     ) {
       state.loginInfo.userHeadAddress = userImgPath;
-      G.USER_INFO = state.loginInfo;
       if (G.autonomously) {
         Storage.set(G.storage_key, state.loginInfo);
       }
@@ -77,7 +78,6 @@ export const loginMutation = {
    */
   ['LOGIN'](state, userInfo) {
     state.loginInfo = userInfo;
-    G.USER_INFO = state.loginInfo;
     if (G.autonomously) {
       Storage.set(G.storage_key, userInfo);
     }
@@ -89,7 +89,6 @@ export const loginMutation = {
   ['SET_OPTIONS'](state, options) {
     // Storage.set(G.options_key, options);
     state.options = options;
-    G.OPTIONS = state.options;
     if (G.autonomously) {
       Storage.set(G.options_key, options);
     }
@@ -110,8 +109,6 @@ export const loginMutation = {
   ['LOGOUT_USER'](state) {
     if (!G.autonomously) {
       G.token = null;
-      G.OPTIONS = null;
-      G.USER_INFO = null;
       state.options = {};
       state.token = null;
     } else {

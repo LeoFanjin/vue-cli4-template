@@ -6,6 +6,7 @@ import App from './App.vue';
 import i18n from './i18n';
 import router from './router';
 import store from './store';
+import { Storage } from 'utiles';
 
 // 用于单点登录发起jsonp请求
 import jsonp from 'jsonp';
@@ -56,8 +57,8 @@ if (token) {
           if (data.organizationEntity && data.userEntity) {
             data.userEntity.organ = data.organizationEntity;
           }
-          G.USER_INFO = data.userEntity;
-          G.OPTIONS = data.operationEntities;
+          Storage.set(G.storage_key, data.userEntity);
+          Storage.set(G.options_key, data.operationEntities);
 
           // 单点登录成功后初始化Vue
           new Vue({
