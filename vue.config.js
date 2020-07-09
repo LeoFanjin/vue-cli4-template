@@ -61,13 +61,9 @@ module.exports = {
     }
   }, */
   configureWebpack: (config) => {
-    if (process.env.NODE_ENV === 'production') {
-      config.devtool = 'cheap-module-source-map';
-    }
     config.resolve.modules.push('common_modules');
     // 初始配置里已有类型：'.mjs', '.js', '.jsx', '.vue', '.json', '.wasm'
     config.resolve.extensions.push('.ts', '.tsx');
-    const productionGzipExtensions = ['html', 'js', 'css'];
     config.plugins.push(
       new webpack.ProvidePlugin({
         $: 'jquery',
@@ -76,22 +72,28 @@ module.exports = {
         // Popper: ['popper.js', 'default'],
         _: 'underscore',
         G: path.join(__dirname, './src/config/g.js')
-      }),
-      // Gzip压缩
-      new CompressionWebpackPlugin({
-        filename: '[path].gz[query]',
-        algorithm: 'gzip',
-        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
-        threshold: 10240, // 只有大小大于该值的资源会被处理 10240
-        minRatio: 0.8, // 只有压缩率小于这个值的资源才会被处理
-        deleteOriginalAssets: false // 删除原文件
       })
     );
-    // 打包分析工具
-    if (process.env.npm_config_report) {
-      const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-        .BundleAnalyzerPlugin;
-      config.plugins.push(new BundleAnalyzerPlugin());
+    if (process.env.NODE_ENV === 'production') {
+      config.devtool = 'cheap-module-source-map';
+      const productionGzipExtensions = ['html', 'js', 'css'];
+      config.plugins.push(
+        // Gzip压缩
+        new CompressionWebpackPlugin({
+          filename: '[path].gz[query]',
+          algorithm: 'gzip',
+          test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+          threshold: 10240, // 只有大小大于该值的资源会被处理 10240
+          minRatio: 0.8, // 只有压缩率小于这个值的资源才会被处理
+          deleteOriginalAssets: false // 删除原文件
+        })
+      );
+      // 打包分析工具
+      if (process.env.npm_config_report) {
+        const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+          .BundleAnalyzerPlugin;
+        config.plugins.push(new BundleAnalyzerPlugin());
+      }
     }
   }
   /* chainWebpack: (config) => {
