@@ -5,8 +5,8 @@ import Vue from 'vue';
 import App from './App.vue';
 import i18n from './i18n';
 import router from './router';
-import store from './store';
-import { Storage } from 'utiles';
+// import store from './store';
+import { Storage } from 'utils';
 
 // 用于单点登录发起jsonp请求
 import jsonp from 'jsonp';
@@ -61,6 +61,7 @@ if (token) {
           Storage.set(G.options_key, data.operationEntities);
 
           // 单点登录成功后初始化Vue
+          const store = require('./store').default;
           new Vue({
             i18n,
             router,
