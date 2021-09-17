@@ -19,6 +19,9 @@ module.exports = {
       }
     } */
   },
+  css: {
+    sourceMap: process.env.NODE_ENV === 'development' ? true : false
+  },
   // publicPath: '/ap/web/',
   /* configureWebpack: {
     devtool: 'source-map',
