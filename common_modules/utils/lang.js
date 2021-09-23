@@ -1,6 +1,6 @@
 import { Storage } from './storage';
 
-export var langx = {
+export const lang = {
   // 设置语言
   setLanguage($vm, lang) {
     $vm.$i18n.locale = lang;
