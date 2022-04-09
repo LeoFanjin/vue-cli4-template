@@ -16,7 +16,7 @@
     "jquery": "^3.5.1",
     "jsonp": "^0.2.1",
     "md5": "^2.2.1",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "qs": "^6.10.1",
     "underscore": "^1.10.2",
     "underscore.string": "^3.3.5",
