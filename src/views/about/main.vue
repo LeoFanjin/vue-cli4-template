@@ -1,5 +1,5 @@
 <script>
-import { Axios, ResponseInterceptor } from 'utils';
+import { Axios /* ResponseInterceptor */ } from 'utils';
 export default {
   render() {
     return (
@@ -9,7 +9,7 @@ export default {
     );
   },
   created() {
-    this.getUserList();
+    // this.getUserList();
   },
   methods: {
     getUserList() {
@@ -27,8 +27,8 @@ export default {
             pageIndex: 1,
             pageSize: 10
           }
-        },
-        {
+        }
+        /* {
           requestInterceptor: {
             handler: (config) => {
               console.log('req', config);
@@ -38,7 +38,7 @@ export default {
           responseInterceptor: {
             handler: ResponseInterceptor.responseWithFormat
           }
-        }
+        } */
       )
         .then((data) => {
           console.log(data);

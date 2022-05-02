@@ -5,24 +5,24 @@ import Vue from 'vue';
 import App from './App.vue';
 import i18n from './i18n';
 import router from './router';
-// import store from './store';
-import { Storage } from 'utils';
+import store from './store';
+// import { Storage } from 'utils';
 
 // 用于单点登录发起jsonp请求
-import jsonp from 'jsonp';
+// import jsonp from 'jsonp';
 
 Vue.config.productionTip = false;
 
 // 非单点登录
-/* new Vue({
+new Vue({
   i18n,
   router,
   store,
   render: (h) => h(App)
-}).$mount('#app'); */
+}).$mount('#app');
 
 // 单点登录
-const GetQueryString = (name) => {
+/* const GetQueryString = (name) => {
   let reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`);
   let r = window.location.search.substr(1).match(reg);
   if (r != null) return unescape(r[2]);
@@ -76,4 +76,4 @@ if (token) {
       }
     }
   );
-}
+} */

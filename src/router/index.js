@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { Storage, logout } from 'utils';
+// import { Storage, logout } from 'utils';
 
 Vue.use(VueRouter);
 
@@ -47,7 +47,7 @@ const routes = [
           )
       }
     ],
-    beforeEnter: (to, from, next) => {
+    /* beforeEnter: (to, from, next) => {
       let user_info = Storage.get(G.storage_key);
       if (to && to.path !== G.loginPage) {
         if (_.isEmpty(user_info)) {
@@ -63,7 +63,7 @@ const routes = [
         }
       }
       next();
-    },
+    }, */
     redirect: G.homePage
   },
   {
