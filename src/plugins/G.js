@@ -1,10 +1,5 @@
 import appConfig from '../config/index';
 
-let indexConfig = {};
-if (typeof extra !== 'undefined') {
-  indexConfig = Object.assign({}, extra);
-}
-
 Object.assign(G, appConfig, {
   isRelyAPI: false, // 是否依赖后台接口
   homePage: '/home', // 首页路由
@@ -20,12 +15,10 @@ Object.assign(G, appConfig, {
   token: null,
   jump: null
 });
-indexConfig.system_code && (G.system_code = indexConfig.system_code);
-indexConfig.title && (G.title = indexConfig.title);
-indexConfig.lang && (G.lang = indexConfig.lang);
-indexConfig.base_api && (G.base_api = indexConfig.base_api);
-indexConfig.portalPage && (G.portalPage = indexConfig.portalPage);
-indexConfig.loginPage && (G.loginPage = indexConfig.loginPage);
+
+if (typeof extra !== 'undefined') {
+  Object.assign(G, extra);
+}
 
 if (!G.isRelyAPI) {
   G.localResource = require('@/ap-base/local-resources');
